@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Skill Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('speship.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container-box {
+            background: url('ai.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            border: 2px dashed white;
+            text-align: center;
+        }
+        .highlight {
+            color: pink;
+            font-weight: bold;
+        }
+        .btn-custom {
+            width: 45%;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-box">
+        <h2>I am <span class="highlight">\/\/ 1 |_ \/\/ 3 |\|</span>, I can solve anything!</h2>
+        <p><strong>Given:</strong></p>
+        <div class="mb-3">
+            <label for="a" class="form-label">Enter a value for <strong>a</strong>:</label>
+            <input type="number" class="form-control" id="a">
+        </div>
+        <div class="mb-3">
+            <label for="b" class="form-label">Enter a value for <strong>b</strong>:</label>
+            <select class="form-control" id="b">
+                <option value="24">24</option>
+                <option value="48">48</option>
+                <option value="72">72</option>
+            </select>
+        </div>
+        <p><small><strong>▼ Click here</strong><br><em>Click the buttons below to calculate.</em></small></p>
+        
+        <div>
+            <button class="btn btn-success btn-custom" onclick="calculateProduct()">      a × b </button>
+            <button class="btn btn-warning btn-custom" onclick="calculatePower()">        a ^ b </button>
+        </div>
+        <div>
+            <button class="btn btn-danger btn-custom" onclick="calculateRemainder()">     a % b </button>
+            <button class="btn btn-info btn-custom" onclick="checkEquality()">           a === b </button>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-custom" onclick="checkGreater()">         a > b </button>
+            <button class="btn btn-secondary btn-custom" onclick="checkLess()">          a < b </button>
+        </div>
+        <div>
+            <button class="btn btn-dark btn-custom" onclick="checkNotEqual()">           a ≠ b </button>
+            <button class="btn btn-light btn-custom" onclick="checkExactEquality()">     a == b </button>
+        </div>
+    </div>
+
+    <script>
+        function getValues() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            return { a, b };
+        }
+
+        function calculateProduct() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert("Product: " + (a * b));
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function calculatePower() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert("a raised to b: " + Math.pow(a, b));
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function calculateRemainder() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert("Remainder: " + (a % b));
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function checkEquality() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert(a === b ? "a is equal to b" : "a is not equal to b");
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function checkGreater() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert(a > b ? "Yes, a is greater than b" : "No, a is not greater than b");
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function checkLess() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert(a < b ? "Yes, a is less than b" : "No, a is not less than b");
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function checkNotEqual() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert(a !== b ? "Yes, a is not equal to b" : "No, a is equal to b");
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+
+        function checkExactEquality() {
+            let { a, b } = getValues();
+            if (!isNaN(a) && !isNaN(b)) {
+                alert(a == b ? "Yes, a is equal to b (==)" : "No, a is not equal to b (==)");
+            } else {
+                alert("Please enter a valid number for a.");
+            }
+        }
+    </script>
+</body>
+</html>
